@@ -1,0 +1,62 @@
+.story{
+  background-color: rgba($color-white, .6);
+  width: 75%;
+  margin: 0 auto;
+  border-radius: 3px;
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  padding: 6rem;
+  padding-left: 9rem; // __shape overflows 3rem by translateX.
+  font-size: $default-font-size;
+  transform: skewX(12deg);
+
+/* transform doesn't work twice. already __shape has a transform. instead, give two transform property to __shape.
+  & > * {
+    transform: skew(-12deg)
+  }
+*/
+
+  &__shape{
+    width: 15rem;
+    height: 15rem;
+    position: relative;
+
+    float: left;
+    shape-outside: circle(50% at 50% 50%); // make text's shape floated around like circle.
+    clip-path: circle(50% at 50% 50%); // make it round.
+    transform: translateX(-3rem) skewX(-12deg); // margin-right, fix skew.
+  }
+
+  &__img{
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    transition: all .5s
+  }
+
+  &__text{
+    transform: skewX(-12deg);
+  }
+
+  &__caption{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    opacity: 0;
+    transition: all .5s;
+
+    font-size: 1.7rem;
+    color: $color-white;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &:hover &__caption{
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img{
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}
