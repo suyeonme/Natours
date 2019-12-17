@@ -1,13 +1,27 @@
 .header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary, 0.8)),
-    url("../img/hero.jpg");
+    url("../img/hero-small.jpg"); // default for low resolution.
   background-size: cover;
   background-position: top;
   position: relative;
 
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); // prefixer is the first
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+
+  // Responsive image in CSS for high resolution
+  // 192dpi: mac retina display.
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),  // for high resolution(retina) and phone
+         (min-width: 125em)  {  // for huge screen, 2000px.
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary, 0.8)),
+      url("../img/hero.jpg");
+  }
+
+  @include respond(phone){
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
 
   &__logo-box{
     position: absolute;

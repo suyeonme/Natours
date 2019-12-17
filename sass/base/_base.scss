@@ -7,9 +7,35 @@
 }
 
 html{
-  font-size: 62.5%; // 10px
+  // This defines what 1rem is
+  font-size: 62.5%; // 1rem = 10px; 10px/16px = 62.5%;
+
+  @include respond(tab-land){ // 1rem = 9px; 9/16 = 56.25%;
+    font-size: 56.25%;        // Always larger one first before smaller one. when they conflict last one will apply.
+  }
+
+  @include respond(tab-port){ // 1rem = 8px; 8/16 = 50%;
+    font-size: 50%;
+  }
+
+  @include respond(phone) {
+    font-size: 46%;
+  }
+
+  @include respond(big-desktop){ // 1rem = 12px; 8/16 = 75%;
+    font-size: 75%;
+  }
 }
 
 body {
   box-sizing: border-box; // Inherited to all elements when use other plug in
+  padding: 3rem;
+
+  @include respond(tab-port){
+    padding: 0;
+  }
+
+  @include respond(phone){
+    padding: 0;
+  }
 }

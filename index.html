@@ -15,6 +15,28 @@
 
     <body>
 
+      <div class="navigation">
+        <input type="checkbox" id="navi-toggler" class="navigation__checkbox">
+
+        <label for="navi-toggler" class="navigation__button">
+          <span class="navigation__icon">&nbsp;</span>
+        </label>
+
+        <div class="navigation__background">&nbsp;</div>
+
+        <nav class="navigation__nav">
+          <ul class="navigation__list">
+            <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>About Natours</a></li>
+            <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benefits</a></li>
+            <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
+            <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
+            <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Book now</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+
       <header class="header">
         <div class="header__logo-box">
             <img src="img/logo-white.png" alt="logo" class="header__logo">
@@ -26,7 +48,7 @@
             <span class="heading-primary--sub">is where life happens</span>
           </h1>
 
-          <a href="#" class="btn btn--white btn--animated">discover Our tours</a>
+          <a href="#" class="btn btn--white btn--animated" id="section">discover Our tours</a>
         </div>
       </header>
 
@@ -55,9 +77,32 @@
 
             <div class="col-1-of-2">
               <div class="composition">
+
+                <!-- Resolution and Density switching -->
+                <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                     size="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                     alt="photo"
+                     class="composition__img composition__img--p1"
+                     src="img/nat-1-large.jpg">
+
+                <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                     size="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                     alt="photo"
+                     class="composition__img composition__img--p2"
+                     src="img/nat-2-large.jpg">
+
+                <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                     size="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                     alt="photo"
+                     class="composition__img composition__img--p3"
+                     src="img/nat-3-large.jpg">
+
+                <!--
                 <img src="img/nat-1-large.jpg"  alt="photo 1" class="composition__img composition__img--p1">
                 <img src="img/nat-2-large.jpg" alt="photo 2" class="composition__img composition__img--p2">
                 <img src="img/nat-3-large.jpg" alt="photo 3" class="composition__img composition__img--p3">
+                -->
+
               </div>
             </div>
           </div>
@@ -148,7 +193,7 @@
                       <p class="card__price-only">Only</p>
                       <p class="card__price-value">$297</p>
                     </div>
-                    <a href="#" class="btn btn--white">Book now</a>
+                    <a href="#popup" class="btn btn--white">Book now</a>
                   </div>
                 </div>
               </div>
@@ -180,7 +225,7 @@
                       <p class="card__price-only">Only</p>
                       <p class="card__price-value">$497</p>
                     </div>
-                    <a href="#" class="btn btn--white">Book now</a>
+                    <a href="#popup" class="btn btn--white">Book now</a>
                   </div>
                 </div>
               </div>
@@ -212,7 +257,7 @@
                       <p class="card__price-only">Only</p>
                       <p class="card__price-value">$697</p>
                     </div>
-                    <a href="#" class="btn btn--white">Book now</a>
+                    <a href="#popup" class="btn btn--white">Book now</a>
                   </div>
                 </div>
               </div>
@@ -333,7 +378,15 @@
 
       <footer class="footer">
         <div class="footer__logo-box">
-          <img src="img/logo-green-2x.png" alt="full logo" class="footer__logo">
+
+          <!-- Art direction and Resolution switching
+              When viewport is smaller than 600px, browser choose another image
+         -->
+          <picture>
+            <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)">
+            <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="full logo" class="footer__logo" src="img/logo-green-2x.png">
+          </picture>
+
         </div>
 
         <div class="row">
@@ -350,12 +403,32 @@
 
           <div class="col-1-of-2">
             <p class="footer__copyright">
-              Built my <a href="#" class="footer__link">Suyeon</a> for practice. You are not allowed to use without my consent.
+              Built <a href="#" class="footer__link">this webpage</a> by suyeon for personal practice. You are not allowed to use without suyeon's consent.
             </p>
           </div>
 
         </div>
       </footer>
+
+      <div class="popup" id="popup">
+        <div class="popup__content">
+          <div class="popup__left">
+            <img src="img/nat-8.jpg" alt="Tour photo" class="popup__img">
+            <img src="img/nat-9.jpg" alt="Tour photo" class="popup__img">
+          </div>
+
+          <div class="popup__right">
+            <a href="#section-tour" class="popup__close"> &times; </a>   <!-- back to initial state, #section-tour -->
+            <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
+            <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.sed do eiusmod tempor incididunt ut minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis auolore eu fugiat nulla pariatur.
+            </p>
+            <a href="#" class="btn btn--green">Book now</a>
+          </div>
+
+        </div>
+      </div>
 
     </body>
 </html>
