@@ -32,6 +32,7 @@
 
     float: left;
     shape-outside: circle(50% at 50% 50%); // make text's shape floated around like circle.
+    -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%); // make it round.
     transform: translateX(-3rem) skewX(-12deg); // margin-right, fix skew.
 
