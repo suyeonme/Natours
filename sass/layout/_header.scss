@@ -15,9 +15,9 @@
 
   // Responsive image in CSS for high resolution
   // 192dpi: mac retina display.
-  @media (min-resolution: 192dpi) and (min-width: 37.5em),  // for retina and screen except for phone
-         (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), // for safari
-         (min-width: 125em)  {  // for huge screen, 2000px.
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),  // for retina and screen except for phone
+         only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), // for safari
+         only screen and (min-width: 125em)  {  // for huge screen, 2000px.
     background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary, 0.8)),
       url("../img/hero.jpg");
   }
